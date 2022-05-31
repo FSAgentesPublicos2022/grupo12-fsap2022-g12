@@ -9,34 +9,69 @@
 </head>
 <body>
 	<header>
-		<div class="container">
-			<nav class="nav nav-pills navbar-dark bg-dark">
-				<li class="nav-item">
-					<a class="nav-link" href="#">
-						<img src="" alt="Logo">
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="#" class="nav-link">
-						Contacto
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="#" class="nav-link">
-						Quienes somos?
-					</a>
-				</li>
-			</nav>
-		</div>
+		<nav class="nav nav-pills navbar-dark bg-dark align-items-center">
+			<li class="nav-item">
+				<a class="nav-link" href="#">
+					<img class="img-fluid" src="img/Logo-CW-50.png" alt="Logo">
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">Contacto</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">Quienes somos?</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">Registarse</a>
+			</li>
+		</nav>
 	</header>
-	<div class="container">
-		<section>
-			<h1>Home</h1>
-		</section>
-		<footer>
-			By Andres Blasiche
-		</footer>
-	</div>
+	<section class="mt-3">
+		<div class="container">
+			<div class="row mb-3">
+				<div class="col-4">
+					<h1>Crypto<br>Wallet</h1>
+				</div>
+				<div class="col-6">
+					<form>
+						<h2>Inicio de Sesión</h2>
+						<div class="form-floating mb-3">
+							<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+							<label for="floatingInput">Usuario</label>
+						</div>
+						<div class="form-floating mb-1">
+							<input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+							<label for="floatingPassword">Contraseña</label>
+							<a href="#">Olvidé mi contraseña</a>
+						</div>
+
+						<button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="fixed-bottom border-top">
+		<div class="container ">
+			<div class="row">
+				<div class="col-3">
+					<span class="text-primary">Crypto Wallet</span>
+					<div class="d-flex flex-column mb-2">
+						<div>Libertad 123</div>
+						<div>Inriville, Ms Jz, Cba.</div>
+						<div>info@cw.com</div>
+						<div>03467-155123456</div>
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-3 text-center border bg-secondary rounded-pill">
+					<span class="text-light">By Andres Blasiche</span>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
 
 
 
