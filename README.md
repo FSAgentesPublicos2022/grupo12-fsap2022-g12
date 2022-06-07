@@ -33,10 +33,10 @@ para la compra y venta de criptomonedas.
 
 ## Autores
 
-- [@Marcela Perez](https://www.github.com/)
-- [@Silvia Perez](https://www.github.com/)
-- [@Luciano Gomez](https://www.github.com/)
-- [@Gualberto Mamani](https://www.github.com/)
+- [@Marcela Perez](https://www.github.com/marbeaper)
+- [@Silvia Perez](https://www.github.com/silagev)
+- [@Luciano Gomez](https://www.github.com/Lucainogomez)
+- [@Gualberto Mamani](https://www.github.com/gdelfor)
 - [@Andres Blasiche](https://github.com/blasichea)
 - [@Roman Sadowski](https://www.github.com/romansad)
 
