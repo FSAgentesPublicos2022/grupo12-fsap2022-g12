@@ -34,7 +34,7 @@ para la compra y venta de criptomonedas.
 ## Autores
 
 - [@Marcela Perez](https://www.github.com/marbeaper)
-- [@Silvia Perez](https://www.github.com/silagev)
+- [@Silvia Vega](https://www.github.com/silagev)
 - [@Luciano Gomez](https://www.github.com/Lucainogomez)
 - [@Gualberto Mamani](https://www.github.com/gdelfor)
 - [@Andres Blasiche](https://github.com/blasichea)
