@@ -15,8 +15,17 @@ div#nombre {
 	max-width: 20px;
 }
 
+.tituloCarousel {
+	padding-top: inherit;
+	margin-top: 0.3em;
+	color: #240f7d;
+	font-size: 1.8em;
+	font-weight: 900;
+	text-shadow: 6px 8px 10px #555;
+  }
 footer {
 	background-image: url("../img/fondo-footer.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
