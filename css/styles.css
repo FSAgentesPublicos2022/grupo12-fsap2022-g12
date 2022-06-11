@@ -23,6 +23,32 @@ div#nombre {
 	font-weight: 900;
 	text-shadow: 6px 8px 10px #555;
   }
+
+  .tituloCarouselTendance{
+	padding-top: inherit;
+	margin-top: 0.3em;
+	color: #97dbfa;
+	font-size: 1.8em;
+	font-weight: 900;
+	text-shadow: 6px 8px 10px #555;
+  }
+  #cryotoland,#cyberLand{
+	color: #97dbfa;
+	text-shadow: 6px 8px 10px rgb(167, 32, 32);
+  }
+
+  aside {
+	/* width: 30%; */
+	padding-left: 1em;
+	margin-left: 1em;
+	padding-right: 1em;
+	margin-right: 1em;
+	float: right;
+	font-style: italic;
+	/* background-color: lightgray; */
+  }
+  #emailHelp{color: white;}
+
 footer {
 	background-image: url("../img/fondo-footer.png");
 	background-repeat: no-repeat;
