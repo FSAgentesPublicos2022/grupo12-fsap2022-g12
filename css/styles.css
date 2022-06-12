@@ -15,28 +15,34 @@ div#nombre {
 	max-width: 20px;
 }
 
+aside {
+	padding-left: 1em;
+	margin-left: 1em;
+	padding-right: 1em;
+	margin-right: 1em;
+	margin-bottom: 1em;
+	float: right;
+	font-style: italic;
+  }
 .tituloCarousel {
 	padding-top: inherit;
 	margin-top: 0.3em;
 	color: #240f7d;
 	font-size: 1.8em;
 	font-weight: 900;
-	text-shadow: 6px 8px 10px #555;
+	text-shadow: 5px 7px 8px #555;
   }
 
-  .tituloCarouselTendance{
+  .tituloCarouselTendance,#cryptoland,#cyberLand{
 	padding-top: inherit;
 	margin-top: 0.3em;
 	color: #97dbfa;
 	font-size: 1.8em;
 	font-weight: 900;
-	text-shadow: 6px 8px 10px #555;
-  }
-  #cryotoland,#cyberLand{
-	color: #97dbfa;
-	text-shadow: 6px 8px 10px rgb(167, 32, 32);
+	text-shadow: 5px 7px 8px rgb(236, 168, 168);
   }
   
+
   .tituloprincipal{
 	padding-top: inherit;
 	margin-top: 0.3em;
@@ -60,23 +66,12 @@ div#nombre {
 	border-radius: 1em;
   }
 
-  aside {
-	/* width: 30%; */
-	padding-left: 1em;
-	margin-left: 1em;
-	padding-right: 1em;
-	margin-right: 1em;
-	margin-bottom: 1em;
-	float: right;
-	font-style: italic;
-	/* background-color: lightgray; */
-  }
+
   #emailHelp{color: rgb(241, 219, 219);}
 
 .degrade{
-	background-color:orange !important;
-  background: rgb(175,171,202) !important;
-background: linear-gradient(45deg, rgba(175,171,202,0) 0% , rgba(97,237,209,0) 100%) !important ;
+	background-color: #813a0f;
+background-image: linear-gradient(60deg, #813a0f 0%, #fde099 70%);
 }
 
 footer {
