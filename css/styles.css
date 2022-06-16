@@ -22,12 +22,13 @@ footer {
 	background-size: cover;
 }
 /* Especifico Landing */
+a{text-decoration: none;}
 .tituloCarousel {
 	padding-top: inherit;
 	margin-top: 0.3em;
 	color: #240f7d;
 	font-size: 1.8em;
-	font-weight: 900;
+	font-weight: 800;
 	text-shadow: 5px 7px 8px #555;
   }
   .tituloCarouselTendance,#cryptoland,#cyberLand{
@@ -35,14 +36,14 @@ footer {
 	margin-top: 0.3em;
 	color: #97dbfa;
 	font-size: 1.8em;
-	font-weight: 900;
+	font-weight: 800;
 	text-shadow: 5px 7px 8px rgb(236, 168, 168);
   }
   .tituloprincipal{
 	padding-top: inherit;
 	margin-top: 0.3em;
 	color: #000000;
-	font-size: 2.8em;
+	font-size: 2.1em;
 	font-weight: 700;
 	text-shadow: 6px 8px 10px rgb(173, 116, 116);
   }
