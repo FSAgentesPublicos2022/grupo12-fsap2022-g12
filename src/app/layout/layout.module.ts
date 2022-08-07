@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { FooterComponent } from './footer/footer.component';
-import { ElFooterComponent } from './el-footer/el-footer.component';
+import { LandingComponent } from './landing/landing.component';
 
 
 
 @NgModule({
   declarations: [
     NavMenuComponent,
-    FooterComponent,
-    ElFooterComponent
+    LandingComponent,
   ],
   imports: [
     CommonModule
   ],
-  exports:[NavMenuComponent,FooterComponent,ElFooterComponent]
+  exports:[NavMenuComponent]
     
 })
 export class LayoutModule { }
