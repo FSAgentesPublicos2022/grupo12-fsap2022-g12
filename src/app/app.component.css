@@ -1,22 +1,9 @@
-.iconos {
-	min-height: auto;
-	max-height: 20px;
-	min-width: auto;
-	max-width: 20px;
-}
 body {
 	background-color:rgb(175, 171, 202);
 }
 
 div#nombre {
 	background-image: url("/assets/bitcoin.jpeg");
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-
-footer {
-	background-image: url("/assets/Imagenes/fondo-footer.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
