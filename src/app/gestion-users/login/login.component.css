@@ -1,9 +1,9 @@
-body {
+/* body {
 	background-color:rgb(175, 171, 202);
-}
+} */
 
 div#nombre {
-	background-image: url("../img/bitcoin.jpeg");
+	background-image: url("/assets/Imagenes/bitcoin.jpeg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -15,8 +15,6 @@ div#nombre {
 	max-width: 20px;
 }
 
-footer {
-	background-image: url("../img/fondo-footer.png");
-	background-repeat: no-repeat;
-	background-size: cover;
+.espacio{
+    margin-bottom: 11em;
 }
