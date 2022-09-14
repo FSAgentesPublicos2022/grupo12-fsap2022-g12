@@ -1,0 +1,67 @@
+<header>
+  <div class="container bg-primary border border-0 rounded-3 text-center mt-2">
+    <p class="text-light">Historial de transacciones</p>
+  </div>
+</header>
+ <div class="container">
+
+    <form class="border border-2 border-primary shadow rounded-end rounded-5 p-3">
+      <div class="col-12">
+          <div class="container text-center mt-3">
+            <form action="/action_page.php">
+               <div class="row">
+                 <div class="col-12">
+                   <label for="Desde">Desde</label>
+                   <input type="date" id="Desde" name="Desde" placeholder="date">
+                   <label for="Hasta">Hasta</label>
+                   <input type="date" id="Hasta" name="Hasta" placeholder="date">
+                  </div>
+                </div>
+                     <br>
+
+            <div class="row justify-content-md-center">
+              <div class="col-3">
+                <label for="select">Seleccionar</label>
+                <select id="select" name="Seleccionar">
+                  <option value="Ventas">Todo</option>
+                  <option value="Ventas">Ventas</option>
+                  <option value="Compras">Compras</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="row justify-content-md-center">
+              <div class="col-3">
+                 <button type="submit" class="btn btn-primary">Buscar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      <br>
+      <div class="table-responsive">
+        <table class="table">
+           <thead class="table-success">
+               <tr>
+                 <th>Fecha</th>
+                 <th>Detalle</th>
+                 <th>Monto</th>
+               </tr>
+           </thead>
+             <tbody>
+               <tr>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+               </tr>
+               <tr>
+                 <td></td>
+                 <td></td>
+                <td></td>
+               </tr>
+             </tbody>
+        </table>
+      </div>
+    </div>
+    </form>
+
+ </div>
