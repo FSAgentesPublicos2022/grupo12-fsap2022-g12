@@ -8,6 +8,7 @@ import { NavMenuComponent } from './layout/nav-menu/nav-menu.component';
 import { LandingComponent } from './layout/landing/landing.component';
 import { PiePaginaComponent } from './layout/pie-pagina/pie-pagina.component';
 import { LoginComponent } from './gestion-users/login/login.component';
+import { TransaccionesComponent } from './historicos/Transacciones/Transacciones.component';
 
 
 
@@ -19,6 +20,7 @@ import { LoginComponent } from './gestion-users/login/login.component';
     LandingComponent,
     PiePaginaComponent,
     LoginComponent,
+    TransaccionesComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { LoginComponent } from './gestion-users/login/login.component';
     RouterModule.forRoot([
       { path: '', component: LandingComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
-      
+
       { path: '*', redirectTo: '' } //a home
     ])
   ],
