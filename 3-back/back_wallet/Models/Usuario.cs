@@ -8,7 +8,8 @@ namespace back_wallet.Models
 {
     public class Usuario
     {
-        public int Id { get; set; }
+        [Key]
+        public int IdUsuario { get; set; }
         public string NombreUser { get; set; }
         public string Contrasenia { get; set; }
         public Boolean IsAdmin { get; set; }

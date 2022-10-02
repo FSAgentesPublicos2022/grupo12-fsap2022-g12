@@ -5,124 +5,31 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
-using System.Web.Mvc;
 using back_wallet.Data;
 using back_wallet.Models;
+using System.Web.Http;
 
 namespace back_wallet.Controllers
 {
-    public class UsuariosController : Controller
+    public class UsuariosController : ApiController
     {
         private back_walletContext db = new back_walletContext();
 
         // GET: Usuarios
-        public ActionResult Index()
+        public List<Usuario> Get()
         {
-            return View(db.Usuarios.ToList());
+            return new List<Usuario> { new Usuario { IdUsuario = 1, NombreUser = "probandotolo", Contrasenia = "LaPassw" } };
         }
 
         // GET: Usuarios/Details/5
-        public ActionResult Details(int? id)
+        
+        public Usuario Get(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Usuario usuario = db.Usuarios.Find(id);
-            if (usuario == null)
-            {
-                return HttpNotFound();
-            }
-            return View(usuario);
+            var lista= new List<Usuario> { new Usuario { IdUsuario = 1, NombreUser = "probandotolo", Contrasenia = "LaPassw" } };
+            return lista.FirstOrDefault(t => t.IdUsuario == id);
         }
 
-        // GET: Usuarios/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
 
-        // POST: Usuarios/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,NombreUser,Contrasenia,IsAdmin,IdPersona,FechaAlta,FechaBaja")] Usuario usuario)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Usuarios.Add(usuario);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(usuario);
-        }
-
-        // GET: Usuarios/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Usuario usuario = db.Usuarios.Find(id);
-            if (usuario == null)
-            {
-                return HttpNotFound();
-            }
-            return View(usuario);
-        }
-
-        // POST: Usuarios/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,NombreUser,Contrasenia,IsAdmin,IdPersona,FechaAlta,FechaBaja")] Usuario usuario)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(usuario).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(usuario);
-        }
-
-        // GET: Usuarios/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Usuario usuario = db.Usuarios.Find(id);
-            if (usuario == null)
-            {
-                return HttpNotFound();
-            }
-            return View(usuario);
-        }
-
-        // POST: Usuarios/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Usuario usuario = db.Usuarios.Find(id);
-            db.Usuarios.Remove(usuario);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

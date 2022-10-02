@@ -51,6 +51,8 @@ D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\roslyn\v
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\roslyn\VBCSCompiler.exe
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\roslyn\VBCSCompiler.exe.config
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\Antlr3.Runtime.dll
+D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\EntityFramework.dll
+D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\EntityFramework.SqlServer.dll
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\Microsoft.Web.Infrastructure.dll
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\Newtonsoft.Json.dll
@@ -65,6 +67,8 @@ D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\System.W
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\System.Web.WebPages.dll
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\System.Web.WebPages.Razor.dll
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\WebGrease.dll
+D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\EntityFramework.xml
+D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\EntityFramework.SqlServer.xml
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\Newtonsoft.Json.xml
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\System.Net.Http.Formatting.xml
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\System.Web.Helpers.xml
@@ -93,7 +97,3 @@ D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\obj\Debug\ba
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\obj\Debug\back_wallet.csproj.CopyComplete
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\obj\Debug\back_wallet.dll
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\obj\Debug\back_wallet.pdb
-D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\EntityFramework.dll
-D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\EntityFramework.SqlServer.dll
-D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\EntityFramework.xml
-D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\EntityFramework.SqlServer.xml

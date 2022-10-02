@@ -20,5 +20,7 @@ namespace back_wallet.Data
         }
 
         public System.Data.Entity.DbSet<back_wallet.Models.Usuario> Usuarios { get; set; }
+
+        public System.Data.Entity.DbSet<back_wallet.Models.Persona> Personas { get; set; }
     }
 }
