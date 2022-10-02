@@ -20,14 +20,14 @@ namespace back_wallet.Controllers
         // GET: api/Personas
         public IQueryable<Persona> GetPersonas()
         {
-            return db.Personas;
+            return db.Persona;
         }
 
         // GET: api/Personas/5
         [ResponseType(typeof(Persona))]
         public IHttpActionResult GetPersona(int id)
         {
-            Persona persona = db.Personas.Find(id);
+            Persona persona = db.Persona.Find(id);
             if (persona == null)
             {
                 return NotFound();
@@ -80,7 +80,7 @@ namespace back_wallet.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Personas.Add(persona);
+            db.Persona.Add(persona);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = persona.IdPersona }, persona);
@@ -90,13 +90,13 @@ namespace back_wallet.Controllers
         [ResponseType(typeof(Persona))]
         public IHttpActionResult DeletePersona(int id)
         {
-            Persona persona = db.Personas.Find(id);
+            Persona persona = db.Persona.Find(id);
             if (persona == null)
             {
                 return NotFound();
             }
 
-            db.Personas.Remove(persona);
+            db.Persona.Remove(persona);
             db.SaveChanges();
 
             return Ok(persona);
@@ -113,7 +113,7 @@ namespace back_wallet.Controllers
 
         private bool PersonaExists(int id)
         {
-            return db.Personas.Count(e => e.IdPersona == id) > 0;
+            return db.Persona.Count(e => e.IdPersona == id) > 0;
         }
     }
 }

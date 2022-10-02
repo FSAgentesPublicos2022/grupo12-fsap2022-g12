@@ -17,7 +17,7 @@ namespace back_wallet.Models
         public string Mail { get; set; }
         public string Domicilio { get; set; }
         public string Altura { get; set; }
-        public DateTime FechaNac { get; set; }
-        public int Bhabilitado { get; set; }
+        public DateTime? FechaNac { get; set; }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
@@ -17,10 +18,16 @@ namespace back_wallet.Data
     
         public back_walletContext() : base("name=back_walletContext")
         {
+            //disable initializer
+            Database.SetInitializer<back_walletContext>(null);
         }
 
-        public System.Data.Entity.DbSet<back_wallet.Models.Usuario> Usuarios { get; set; }
+        protected override void OnModelCreating(DbModelBuilder dbModelBuilder)
+        {
+            dbModelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+         }
+        public System.Data.Entity.DbSet<back_wallet.Models.Usuario> Usuario { get; set; }
 
-        public System.Data.Entity.DbSet<back_wallet.Models.Persona> Personas { get; set; }
+        public System.Data.Entity.DbSet<back_wallet.Models.Persona> Persona { get; set; }
     }
 }
