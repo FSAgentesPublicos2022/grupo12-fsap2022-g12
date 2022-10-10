@@ -16,6 +16,8 @@ import { RegistroComponent } from './gestion-users/registro/registro.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //**************Servicios****************
 import { LoginService } from './services/login.service';
+import { CompraVentaComponent } from './compras/compra-venta/compra-venta.component';
+import { TransaccionesComponent } from './historicos/transacciones/transacciones.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { LoginService } from './services/login.service';
     LandingComponent,
     PiePaginaComponent,
     LoginComponent,
+    CompraVentaComponent,
+    TransaccionesComponent,
     
    // RegistroComponent,
   ],
