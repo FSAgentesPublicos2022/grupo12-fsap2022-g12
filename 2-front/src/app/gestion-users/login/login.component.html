@@ -11,19 +11,20 @@
                 <h1 class="mt-2 me-5">Crypto<br>Wallet</h1>
             </div>
             <div class="col-6">
-                <form class="border border-4 border-primary shadow rounded-end rounded-5 p-3">
+                <form  class="border border-4 border-primary shadow rounded-end rounded-5 p-3" [formGroup]="usuario" (ngSubmit)="login()">
                     <h2>Inicio de Sesión</h2>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" placeholder="name@example.com">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="tuusuario@eldominio.com" formControlName="nombreUser" required>
+                        <div style="color:red" *ngIf="usuario.controls['nombreUser'].errors?.['required']">El nombre de usuario es requerido</div>
                         <label for="floatingInput">Usuario</label>
                     </div>
                     <div class="form-floating mb-1">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" minlength="8" maxlength="20">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" minlength="8" maxlength="20" formControlName="contrasenia">
+                        <div style="color:red" *ngIf="usuario.controls['contrasenia'].errors?.['required']">La contraseña de usuario es requerida</div>
                         <label for="floatingPassword">Contraseña</label>
                         <a href="#">Olvidé mi contraseña</a>
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                   <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                 </form>
             </div>
         </div>

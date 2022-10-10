@@ -15,7 +15,7 @@ namespace back_wallet.Models
         public Boolean IsAdmin { get; set; }
         public int? IdPersona { get; set; }
         public DateTime FechaAlta { get; set; }
-        public DateTime FechaBaja { get; set; }
+        public DateTime? FechaBaja { get; set; }
 
     }
 }

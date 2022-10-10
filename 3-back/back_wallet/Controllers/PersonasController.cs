@@ -13,6 +13,7 @@ using back_wallet.Models;
 
 namespace back_wallet.Controllers
 {
+    [Authorize]
     public class PersonasController : ApiController
     {
         private back_walletContext db = new back_walletContext();
@@ -20,6 +21,7 @@ namespace back_wallet.Controllers
         // GET: api/Personas
         public IQueryable<Persona> GetPersonas()
         {
+            
             return db.Persona;
         }
 

@@ -1,0 +1,40 @@
+Inserts en base de datos WALLET
+
+INSERT INTO Personas (Nombre,Apellido,Cuil,Mail,FechaNac,Bhabilitado) VALUES('Marcos','Galperin','20224323116','pobreMarcos@gmail.com',05/17/1971,1)
+select * From PERSONAs
+CREATE TABLE PERSONA(
+	IdPersona int IDENTITY(1,1) PRIMARY KEY,
+	Nombre varchar(100) NULL,
+	Apellido varchar(150) NULL,
+	Telefono varchar(50) NULL,
+	Cuil varchar(16) NULL,
+	Mail varchar(100) NULL UNIQUE,
+	Domicilio varchar(100) NULL,
+	Altura varchar(5) NULL,
+	FechaNac date NULL,
+	BHabilitado int NULL,
+	)
+ 
+CREATE TABLE USUARIO(
+	IdUsuario int IDENTITY(1,1) PRIMARY KEY,
+	NombreUser varchar(100) NULL,
+	Contrasenia varchar(100) NULL,
+	IdPersona int NULL,
+	BHabilitado int NULL,
+	IsAdmin bit NULL,
+	FechaAlta datetime NULL  DEFAULT (getdate()),
+	FechaBaja datetime NULL,
+	FOREIGN KEY (IdPersona) 
+        REFERENCES PERSONA (IdPersona) 
+        ON DELETE CASCADE ON UPDATE CASCADE
+	)
+
+
+
+UTNING INICIAL La CLAVE ES : AAaa!!11
+
+INSERT INTO PERSONA (Nombre,Apellido,Cuil,Mail,FechaNac,Bhabilitado) VALUES('Marcos','Galperin','20224323116','pobreMarcos@gmail.com',05/17/1971,1)
+select * From PERSONA
+INSERT INTO USUARIO (NombreUser,Contrasenia,IdPersona,IsAdmin) VALUES('mercader','D835BDFF7991A7733561A7AA41ABEFC7C30DB236456E451969D496B31C0D830D',1,1)
+select * From USUARIO
+ 
