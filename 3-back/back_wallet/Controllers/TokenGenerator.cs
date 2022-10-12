@@ -20,6 +20,7 @@ namespace back_wallet.Controllers
 
             // create a claimsIdentity
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, username) });
+          //  ClaimsIdentity claimsIdentity2 = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, "el CAPOO") });
 
             // create token to the user
             var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();

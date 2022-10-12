@@ -22,19 +22,6 @@ namespace back_wallet
 
 
             config.MessageHandlers.Add(new TokenValidationHandler());
-            //var builder = WebApplication.CreateBuilder(Args);
-            //string cors = "ConfigurarCors";
-            //// Add services to the container.
-
-            //builder.Services.AddControllersWithViews();
-            //builder.Services.AddCors(options =>
-            //{
-            //    options.AddPolicy(name: cors, builder =>
-            //    {
-            //        builder.WithOrigins("*");
-            //    });
-
-            //});
           
 
             // Rutas de API web

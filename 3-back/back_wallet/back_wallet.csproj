@@ -324,6 +324,7 @@
       <Private>True</Private>
       <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -345,7 +346,9 @@
     <Compile Include="JwtAuthenticationService .cs" />
     <Compile Include="Models\LoginResponse.cs" />
     <Compile Include="Models\Persona.cs" />
+    <Compile Include="Models\Resultado.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\UsuariosApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

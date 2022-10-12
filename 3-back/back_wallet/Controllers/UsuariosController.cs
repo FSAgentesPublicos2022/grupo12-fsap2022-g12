@@ -12,6 +12,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using System.Web.Http.Cors;
+
+
 namespace back_wallet.Controllers
 {
 
@@ -20,13 +22,7 @@ namespace back_wallet.Controllers
     
     public class UsuariosController : ApiController
     {
-        private readonly IJwtAuthenticationService _jwtAuthenticationService;
-
-        public UsuariosController(IJwtAuthenticationService jwtAuthenticationService)
-        {
-            _jwtAuthenticationService = jwtAuthenticationService;
-        }
-
+        
         private back_walletContext bd = new back_walletContext();
         
         
@@ -76,12 +72,13 @@ namespace back_wallet.Controllers
                          oUsuarioRecuerar = bd.Usuario.Where(p => p.NombreUser.ToUpper() == oUsuarioCLS.NombreUser.ToUpper()
                         && p.Contrasenia == claveCifrada).First();
                         //HttpContext.Session.SetString("empleado", oUsuarioRecuerar.IdUsuario.ToString());
-
                         oUsuario.IdUsuario = oUsuarioRecuerar.IdUsuario;
                         oUsuario.NombreUser = oUsuarioRecuerar.NombreUser;
+                        oUsuario.IsAdmin = oUsuarioRecuerar.IsAdmin;
                         var token = TokenGenerator.GenerateTokenJwt(oUsuario.NombreUser);
-                        //return Ok(_jwtAuthenticationService.getToken(oUsuarioRecuerar.IdUsuario));
-                        //ahora sra  como sigue abajo 
+                        //Mañana en el return ok debo devolver una lista y en el servicio debo mapear los tres objetos para ver que recibo.
+                        //quizas deba crear una clase o interfaz en angular para poder mapear lo que viene.
+                       
                         return Ok(token);
                     }
                     else
