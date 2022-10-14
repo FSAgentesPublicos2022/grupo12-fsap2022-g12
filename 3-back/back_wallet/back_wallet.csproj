@@ -342,13 +342,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="IJwtAuthenticationService.cs" />
-    <Compile Include="JwtAuthenticationService .cs" />
-    <Compile Include="Models\LoginResponse.cs" />
     <Compile Include="Models\Persona.cs" />
-    <Compile Include="Models\Resultado.cs" />
     <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Models\UsuariosApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

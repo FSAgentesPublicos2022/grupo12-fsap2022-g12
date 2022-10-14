@@ -75,7 +75,8 @@ namespace back_wallet.Controllers
                         oUsuario.IdUsuario = oUsuarioRecuerar.IdUsuario;
                         oUsuario.NombreUser = oUsuarioRecuerar.NombreUser;
                         oUsuario.IsAdmin = oUsuarioRecuerar.IsAdmin;
-                        var token = TokenGenerator.GenerateTokenJwt(oUsuario.NombreUser);
+                        oUsuario.Mail = oUsuarioRecuerar.Mail;
+                        var token = TokenGenerator.GenerateTokenJwt(oUsuario.NombreUser,oUsuario.Mail,oUsuario.IsAdmin);
                         //Mañana en el return ok debo devolver una lista y en el servicio debo mapear los tres objetos para ver que recibo.
                         //quizas deba crear una clase o interfaz en angular para poder mapear lo que viene.
                        

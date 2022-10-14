@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login() {
+  async login() {
     if (this.usuario.valid == true) {
       this.servicioLogin.login(this.usuario.value).subscribe(res => {
         if (res.idUsuario == 0 || res.idUsuario == "") {
@@ -35,10 +35,9 @@ export class LoginComponent implements OnInit {
         else {
           //Esta Ok
           this.error = false;
-          //this.router.navigate(["/landing"]);login
-          window.location.href = this.urlBaseFront + "landing";
+        window.location.href = this.urlBaseFront + "dashboard";
         }
-        console.log(res);
+        //console.log(res);
 
       });
     }

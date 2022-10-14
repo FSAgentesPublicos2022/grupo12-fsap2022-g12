@@ -17,6 +17,7 @@ namespace back_wallet
         public static void Register(HttpConfiguration config)
         {
             // Configuración y servicios de API web
+           
             //añadimos cors   
             config.EnableCors();
 

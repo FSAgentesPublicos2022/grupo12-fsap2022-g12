@@ -4,6 +4,9 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router'; //me parece que no hace falta.
 import * as moment from 'moment';
+//la siguiente libreria se utiliza para decdificar el token
+import jwt_decode from 'jwt-decode';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,29 +15,49 @@ export class LoginService {
   urlBase :string ="https://localhost:44393/";
 
   constructor(private http: HttpClient, private router: Router) {
-      }
+
+  }
 
 
 
   ////   ************** LOGIN *****************
-  public login(usuario: any): Observable<any> {
-    return this.http.post(this.urlBase + "api/Usuarios/login/", usuario).pipe(
-      map(res => {
+  public  login(usuario: any): Observable<any> {
+     return  this.http.post( this.urlBase + "api/Usuarios/login/", usuario).pipe(
+      map( res =>  {
+
+       localStorage.setItem('token', JSON.stringify(res));
+       
         this.guardarToken(res);
-        return res;
+        
+        const tokenInfo = this.getDecodedAccessToken(JSON.stringify(res)); // decode token
+       const expireDate = tokenInfo.exp; // get token expiration dateTime
+       console.log(tokenInfo); // mostramos el token decodificado
+       const correo = tokenInfo.email;
+       const userdecode = tokenInfo.unique_name
+       localStorage.setItem('mail', JSON.stringify(correo));
+        localStorage.setItem('nombreUser', JSON.stringify(userdecode));
+
+
+         return res;
+   
       })
     );
   }
 
+  getDecodedAccessToken(token: string): any {
+    try {
+      return jwt_decode(token);
+    } catch(Error) {
+      return null;
+    }
+  }
   private guardarToken(authResult: any) {
     const expiresAt = moment().add(authResult.expiresAt, 'seconds');
-
-    localStorage.setItem('tokenId', authResult.tokenId);
     localStorage.setItem("expiresAt", JSON.stringify(expiresAt.valueOf()));
   }
 
   private borrarToken() {
-    localStorage.removeItem("tokenId");
+    //localStorage.removeItem("token");
     localStorage.removeItem("expiresAt");
   }
 

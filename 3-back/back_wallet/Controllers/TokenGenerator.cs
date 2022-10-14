@@ -7,7 +7,7 @@ namespace back_wallet.Controllers
 {
     internal static class TokenGenerator
     {
-        public static string GenerateTokenJwt(string username)
+        public static string GenerateTokenJwt(string username,string mail,Boolean rol)
         {
             // appsetting for Token JWT
             var secretKey = ConfigurationManager.AppSettings["JWT_SECRET_KEY"];
@@ -17,11 +17,12 @@ namespace back_wallet.Controllers
 
             var securityKey = new SymmetricSecurityKey(System.Text.Encoding.Default.GetBytes(secretKey));
             var signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
-
+            var rolUser= "";
             // create a claimsIdentity
-            ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, username) });
-          //  ClaimsIdentity claimsIdentity2 = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, "el CAPOO") });
+            if (rol) { rolUser = "Admin"; } else { rolUser = "Usuario"; }
 
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, username), new Claim( ClaimTypes.Email, mail), new Claim(ClaimTypes.Role, rolUser) });
+           
             // create token to the user
             var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
             var jwtSecurityToken = tokenHandler.CreateJwtSecurityToken(

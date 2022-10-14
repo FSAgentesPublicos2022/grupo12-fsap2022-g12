@@ -18,6 +18,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginService } from './services/login.service';
 import { CompraVentaComponent } from './compras/compra-venta/compra-venta.component';
 import { TransaccionesComponent } from './historicos/transacciones/transacciones.component';
+import { DashboardComponent } from './layout/dashboard/dashboard.component';
+
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 @NgModule({
@@ -29,6 +32,9 @@ import { TransaccionesComponent } from './historicos/transacciones/transacciones
     LoginComponent,
     CompraVentaComponent,
     TransaccionesComponent,
+    DashboardComponent,
+  
+
     
    // RegistroComponent,
   ],
@@ -38,11 +44,13 @@ import { TransaccionesComponent } from './historicos/transacciones/transacciones
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    MatBadgeModule,
     RouterModule.forRoot([
       { path: '', component: LandingComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
       { path: 'registro', component: RegistroComponent },
       { path: 'landing', component: LandingComponent },
+      { path: 'dashboard', component: DashboardComponent },
       
      
       { path: '*', redirectTo: '' } //a home
