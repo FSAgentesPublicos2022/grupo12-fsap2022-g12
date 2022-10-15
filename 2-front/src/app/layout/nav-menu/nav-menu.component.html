@@ -8,6 +8,23 @@
 	<!-- <link rel="stylesheet" href="css/styles.css"> -->
 	<title>Crypto Wallet</title>
 </head>
+	<!-- <nav class="nav nav-pills navbar-dark bg-dark align-items-center">
+		<li class="nav-item">
+			<a class="nav-link" href="#">
+				<img class="img-fluid" src="/assets/Imagenes/Logo-CW-50.png" alt="Logo">
+			</a>
+		</li>
+		<li class="nav-item">
+			<a href="#" class="nav-link">Contacto</a>
+		</li>
+		<li class="nav-item">
+			<a href="#" class="nav-link">Quienes somos?</a>
+		</li>
+		<li class="nav-item">
+			<a href="#" class="nav-link">Registrarse</a>
+		</li>
+	</nav> -->
+
 	<nav class="nav nav-pills navbar-dark bg-dark align-items-center">
             
 		<li class="nav-item">
@@ -16,17 +33,25 @@
 			</a>
 		</li>
 		<li class="nav-item">
-			<a href="#" class="nav-link">Contacto</a>
+			<a class="nav-item" [routerLink]="['/']" role="button"  aria-haspopup="true" aria-expanded="false">
+				<img src="../../../assets/Imagenes/Contacto.svg" alt="" width="30" height="30">&nbsp;&nbsp; &nbsp;&nbsp;Contacto &nbsp;&nbsp;
+			  </a>
 		</li>
 
 		<li class="nav-item">
-			<a href="#" class="nav-link">Quienes somos?</a>
+			<a class="nav-item texto-blanco" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<img src="../../../assets/Imagenes/Equipo.svg" alt="" width="30" height="30">&nbsp;&nbsp;Quienes Somos? &nbsp;&nbsp; &nbsp;&nbsp;
+			  </a>
 		</li>
-		<li class="nav-item">
-			<a [routerLink]="['/registro']" class="nav-link">Registrarse</a>
+			  <li class="nav-item">
+				<a class="nav-item" [routerLink]="['/registro']" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<img src="../../../assets/Imagenes/registrarse.svg" alt="" width="30" height="30">&nbsp;&nbsp; &nbsp;&nbsp;Registrarse
+				  </a>
 		</li>
-		<li class="nav-item me-auto">
-			<a [routerLink]="['/login']" class="nav-link pe-5">Inicio de Sesión</a>
+		<li class="nav-item ms-auto mb-2 mb-lg-0">
+			<a class="nav-item" [routerLink]="['/login']"  role="button" aria-haspopup="true" aria-expanded="false">
+    <img src="../../../assets/Imagenes/Ingresar.svg" alt="" width="30" height="30">&nbsp;&nbsp; Iniciar Sesión &nbsp;&nbsp;&nbsp;&nbsp;
+			  </a>
 		</li>
 		<div class="collapse navbar-collapse">
 			<ul class="navbar-nav ms-auto">

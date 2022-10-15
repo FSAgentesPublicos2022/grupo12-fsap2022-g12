@@ -17,14 +17,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //**************Servicios****************
 import { LoginService } from './services/login.service';
 import { CompraVentaComponent } from './compras/compra-venta/compra-venta.component';
-import { TransaccionesComponent } from './historicos/transacciones/transacciones.component';
+import { TransaccionesComponent } from './historicos/Transacciones/Transacciones.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 
 import {MatBadgeModule} from '@angular/material/badge';
+import { CampoRequeridoComponent } from './layout/campo-requerido/campo-requerido.component';
 
 
 @NgModule({
-  declarations: [
+  declarations:[
     AppComponent,
     NavMenuComponent,
     LandingComponent,
@@ -33,10 +34,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     CompraVentaComponent,
     TransaccionesComponent,
     DashboardComponent,
-  
-
-    
-   // RegistroComponent,
+    CampoRequeridoComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,
