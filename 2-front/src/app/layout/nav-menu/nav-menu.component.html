@@ -48,11 +48,45 @@
 					<img src="../../../assets/Imagenes/registrarse.svg" alt="" width="30" height="30">&nbsp;&nbsp; &nbsp;&nbsp;Registrarse
 				  </a>
 		</li>
+		
+		
 		<li class="nav-item ms-auto mb-2 mb-lg-0">
-			<a class="nav-item" [routerLink]="['/login']"  role="button" aria-haspopup="true" aria-expanded="false">
+			<a class="nav-item" [routerLink]="['/login']" *ngIf="login==false" role="button" aria-haspopup="true" aria-expanded="false">
     <img src="../../../assets/Imagenes/Ingresar.svg" alt="" width="30" height="30">&nbsp;&nbsp; Iniciar Sesión &nbsp;&nbsp;&nbsp;&nbsp;
 			  </a>
 		</li>
+
+
+
+		<li class="nav-item dropdown ">
+			<a class="nav-link dropdown-toggle texto-blanco"*ngIf="login==true" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			  <img src="../../../assets/Imagenes/Ingresar.svg" alt="" width="36" height="36">&nbsp;&nbsp;&nbsp;{{usuario}} 
+			</a>
+	
+			<div class="dropdown-menu " aria-labelledby="navbarDropdown"
+			[routerLinkActive]="['link-active']">
+		 <a class="nav-link texto-negro" [routerLink]="['/login']" *ngIf="login!=true" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		   <img src="../../../assets/Imagenes/Ingresar.svg" alt="" width="36" height="36">&nbsp;&nbsp;&nbsp;Inicie Sesión
+		 </a>
+	   </div>
+			<div class="dropdown-menu " aria-labelledby="navbarDropdown"
+				 [routerLinkActive]="['link-active']">
+			  <a class="nav-link  texto-negro" (click)="cerrarSession()" *ngIf="login==true" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<img src="../../../assets/Imagenes/Contacto.svg" alt="No carga" width="36" height="36">&nbspCerrar Sesión ;&nbsp;&nbsp;
+			  </a>
+			  <a *ngFor="let menu of menus" class="dropdown-item" [routerLink]="[menu.accion]">&nbsp;&nbsp;{{menu.mensaje}}</a>
+			</div>
+		  </li>
+		  <li class="nav-item dropdown"
+			  [routerLinkActive]="['link-active']">
+			<a class="nav-link" (click)="cerrarSession()" *ngIf="login==true" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			  <img src="../../../assets/Imagenes/power.svg" alt="" width="36" height="36">&nbsp;&nbsp;&nbsp;Cerrar Sesión
+			</a>
+		  </li>
+	
+
+		<!-- No Tocar a partir de aca sino se rompe! -->
+
 		<div class="collapse navbar-collapse">
 			<ul class="navbar-nav ms-auto">
 			  <li class="nav-item">

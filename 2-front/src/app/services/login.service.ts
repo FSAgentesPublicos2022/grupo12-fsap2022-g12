@@ -13,6 +13,7 @@ import jwt_decode from 'jwt-decode';
 })
 export class LoginService {
   urlBase :string ="https://localhost:44393/";
+  devolversession :any =""; //quitar cuando tengamos interceptor
 
   constructor(private http: HttpClient, private router: Router) {
 
@@ -57,8 +58,10 @@ export class LoginService {
   }
 
   private borrarToken() {
-    //localStorage.removeItem("token");
+    localStorage.removeItem("token");
     localStorage.removeItem("expiresAt");
+    localStorage.removeItem("nombreUser");
+    localStorage.removeItem("mail");
   }
 
   public isLoggedIn(): boolean {
@@ -79,14 +82,37 @@ export class LoginService {
     return moment(expiresAt);
   }
 
-
+//Crear El endpoint en el back para obtener el ok del cierre de session. ya que el jwt es stateless.
   public cerrarSession() {
     return this.http.get(this.urlBase + "api/Usuarios/cerrarSession")
       .pipe(map(res => {
         this.borrarToken();
         return res;
     }));
+
+  // public cerrarSession() {
+  //   return this.http.get(this.urlBase + "api/Usuarios/cerrarSession")
+  //     .pipe(map(res => {
+  //       this.borrarToken();
+  //       return res;
+  //   }));
   }
   //   *************** FIN LOGIN ***************
+
+//MANejo de la sesion debo implementar token con el interceptor luego 
+
+public ObtenerSession(): Observable<string>{
+const idToken = localStorage.getItem("token");
+
+    if (idToken) {
+
+       this.devolversession= localStorage.getItem("nombreUser");
+      // console.log("a ver si devuelve el usuario del token"+this.devolversession);
+      return this.devolversession;
+    }
+    else {
+      return this.devolversession;
+    }
+  }
 
 }

@@ -30,25 +30,6 @@ namespace back_wallet.Controllers
         {
             // OJO DESPUES DE LAS PRUEBAS BORRAR ESTE CONSTRUCTOR SIN PARAMETROS
         }
-        // GET: Usuarios
-        //public List<Usuario> Get()
-        //{
-        //    // OJO DESPUES DE LAS PRUEBAS BORRAR ESTE CONSTRUCTOR SIN PARAMETROS
-        //    return new List<Usuario> { new Usuario { IdUsuario = 1, NombreUser = "probandotolo", Contrasenia = "LaPassw" } };
-        //}
-
-        // GET: Usuarios/Details/5
-
-        //public Usuario Get(int id)
-        //{
-        //    // OJO DESPUES DE LAS PRUEBAS BORRAR ESTE CONSTRUCTOR SIN PARAMETROS
-        //    var lista = new List<Usuario> { new Usuario { IdUsuario = 1, NombreUser = "probandotolo", Contrasenia = "LaPassw" } };
-        //    return lista.FirstOrDefault(t => t.IdUsuario == id);
-        //}
-
-
-
-        //Insertar metodo para obtener user.
         [HttpPost]
         [Route("api/Usuarios/login")]
         public IHttpActionResult login([FromBody] Usuario oUsuarioCLS)
@@ -71,7 +52,6 @@ namespace back_wallet.Controllers
                     {
                          oUsuarioRecuerar = bd.Usuario.Where(p => p.NombreUser.ToUpper() == oUsuarioCLS.NombreUser.ToUpper()
                         && p.Contrasenia == claveCifrada).First();
-                        //HttpContext.Session.SetString("empleado", oUsuarioRecuerar.IdUsuario.ToString());
                         oUsuario.IdUsuario = oUsuarioRecuerar.IdUsuario;
                         oUsuario.NombreUser = oUsuarioRecuerar.NombreUser;
                         oUsuario.IsAdmin = oUsuarioRecuerar.IsAdmin;
@@ -94,8 +74,26 @@ namespace back_wallet.Controllers
             return Unauthorized();
         }
 
-      
+
         //*****************FIN LOGIN **************************************
+
+        //----------------<<<<<< Cierre de Sesion >>>>>>>>***************
+
+        //CERRAR SESION
+        [HttpGet]
+        [Route("api/Usuarios/cerrarSession")]
+        public IHttpActionResult cerrarSession()
+        {
+            try
+            {
+                
+                return Ok("ok");
+            }
+            catch (Exception ex) { Console.WriteLine(ex); }
+            return Unauthorized();
+        }
+
+
     }
 }
 
