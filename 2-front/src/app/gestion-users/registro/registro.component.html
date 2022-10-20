@@ -1,98 +1,46 @@
-<!-- <form [formGroup]="Usuario" (ngSubmit)="guardarDatos()">
-    <div class="container-fluid">
-      <div class="d-flex align-items-center p-2 my-2  bg-light shadow p-2 mb-5 rounded shadow-sm  fondoTextTitulo">
-        <img src="../../../assets/IconsGoogle/lote_px.png" alt="Usuario" width="58" height="58">
-        <div class="tituloFormulario text-center form-group col-md-8 offset-md-1">
-          <p> Formulario de Registro de Usuario</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="pt-4 col-md-4 offset-md-1">
-            <div class="row">
-            <div class="col-7">
-              <campo-requerido formControlName="DniTitular" placeholder="Dni de titular" (blur)="onTouched()"></campo-requerido>
-            </div>
-            <div class="col-5">
-              <button type="button" value="" class="btn btn-primary col-md-3 form-control" (click)="VerificarPreexistenciaPersona()" title="Verificar si la persona ya está registrada en caso negativo deberá ingresar los datos correspondientes.">  <img src="../../../assets/IconsGoogle/check-square.svg" alt="" width="16" height="16" title="Verificar si la persona ya está registrada en caso negativo deberá ingresar los datos correspondientes.">&nbsp;&nbsp;Verificar Persona</button>
-            </div>
-          </div>
-        </div>
-  
-        <div class="pt-4 col-md-4 offset-md-1">
-         
-          <div class="row">
-            <div class="col-7">
-              <campo-requerido formControlName="NomenclaturaCatastral" placeholder=" Nomenclatura del lote" (blur)="onTouched()"></campo-requerido>
-            </div>
-            <div class="col-5">
-              <button type="button" value="" class="btn btn-primary col-md-3 form-control" (click)="BuscarUsuarioPrexistente()" title="Verificar si el lote ya existe">  <img src="../../../assets/IconsGoogle/check-square.svg" alt="" width="16" height="16" title="Verificar si el lote ya existe">&nbsp;&nbsp;Verificar Usuario</button>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <div class="row pt-4 ">
-        <div class="pt-4 col-md-4 offset-md-1" [ngClass]="{ 'was-validated': Usuario.value?.codTipoUsuario }">
-          <select id="CodTipo_Usuario" formControlName="CodTipoInmueble" class="form-control"(blur)="onTouched()">
-            <option selected disabled value="">--Seleccione el tipo de lote--</option>
-            <option [ngValue]="TipoUsuario.cod_Tipo_Usuario" *ngFor="let TipoUsuario of TiposUsuario">{{TipoUsuario.nombre}}</option>
-          </select>
-        </div>
-      </div>
-      <div class="row pt-4">
-        <div class="pt-4 col-md-4 offset-md-1">
-          <campo-requerido formControlName="Manzana" placeholder=" Manzana" (blur)="onTouched()"></campo-requerido>
-  
-        </div>
-        <div class="pt-4 col-md-4 offset-md-1">
-          <campo-requerido formControlName="NroUsuario" placeholder="Numero de Usuario" (blur)="onTouched()"></campo-requerido>
-        </div>
-      </div>
-      <div class="row pt-4">
-        <div class="pt-4 col-md-4 offset-md-1">
-          <campo-requerido formControlName="Calle" placeholder="Calle" (blur)="onTouched()"></campo-requerido>
-  
-        </div>
-        <div class="pt-4 col-md-4 offset-md-1">
-          <campo-requerido formControlName="Altura" placeholder="Altura" (blur)="onTouched()"></campo-requerido>
-        </div>
-      </div>
-      <div class="row pt-4">
-        <div class="pt-4 col-md-4 offset-md-1">
-          <campo-requerido formControlName="SupTerreno" placeholder="superficie del lote en metros cuadrados" (blur)="onTouched()"></campo-requerido>
-        </div>
-  
-        <div class="pt-4 col-md-4 offset-md-1">
-          <campo-requerido formControlName="SupEdificada" placeholder="Superficie Edificada en metros cuadrados" (blur)="onTouched()"></campo-requerido>
-        </div>
-      </div>
-  
-  
-  
-      <div class="pb-5 mt-5 form-group justify-content-around offset-md-4">
-        <input [disabled]="!Usuario.valid" type="submit" value="Generar" class="btn btn-success col-md-1 offset-md-1" />
-        <button type="button" class="btn btn-light col-md-1 offset-md-1" (click)="volverUsuarioTabla()">Cancelar</button>
-      </div>
-    </div>
-      <ng-template #myModalInfo let-modal>
-        <div class="modal bg-secondary" tabindex="-1" style="display:block;" role="dialog">
-          <div class="modal-dialog modal-dialog-scrollable modal-lg">
-            <div class="modal-content ">
-              <div class="modal-header">
-                <h5 class="modal-title">{{tituloModal}}</h5>
-                <img src="../../../assets/Imagenes/logo-cristal_3.png" width="100" height="100" />
-              </div>
-              <div class="modal-body">
-                {{resultadoGuardadoModal}}
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark" (click)="cerrarmodal()">Cerrar</button>
-              </div>
-            </div>
-  
-          </div>
-  
-        </div>
-      </ng-template>
-  
-  </form> -->
+<div class="container">
+	<div class="row mb-3">
+		<div class="col-3"></div>
+		<div class="col-6">
+			<h1>Registro de usuario</h1>
+			<form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+				<label>Nombre</label>
+				<input type="text" formControlName="nombre" class="form-control" [ngClass]= "{ 'is-invalid': form['nombre'].errors }" required/>
+				<div *ngIf= "form['nombre'].errors" class="invalid-feedback">
+					<div *ngIf= "form['nombre'].errors['required']" class="text-danger">El nombre es obligatorio</div>
+				</div>
+				<label>Apellido</label>
+				<input type="text" formControlName="apellido" class="form-control" [ngClass]= "{ 'is-invalid': form['apellido'].errors }" required/>
+				<div *ngIf= "form['apellido'].errors" class="invalid-feedback">
+					<div *ngIf= "form['apellido'].errors['required']">El apellido es obligatorio</div>
+				</div>
+				<label>Email</label>
+				<input type="email" formControlName="email" class="form-control" [ngClass]= "{ 'is-invalid': form['email'].errors }" required/>
+				<div *ngIf= "form['email'].errors" class="invalid-feedback">
+					<div *ngIf= "form['email'].errors['required']">El email es obligatorio</div>
+					<div *ngIf= "form['email'].errors['email']">Compruebe que el email sea correcto</div>
+				</div>
+				<label>Contraseña</label>
+				<input type="password" formControlName="clave" class="form-control" [ngClass]= "{ 'is-invalid': form['clave'].errors }" required/>
+				<div *ngIf= "form['clave'].errors" class="invalid-feedback">
+					<div *ngIf= "form['clave'].errors['required']">La contraseña es obligatoria</div>
+					<div *ngIf= "form['clave'].errors['minlength']">La contraseña no supera la longitud minima</div>
+				</div>
+
+				<label>Repetir contraseña</label>
+				<input type="password" formControlName="rptClave" class="form-control" [ngClass]= "{ 'is-invalid': form['rptClave'].errors }" required/>
+				<div *ngIf= "form['rptClave'].errors" class="invalid-feedback">
+					<div *ngIf= "form['rptClave'].errors['required']">Repetir contraseña es obligatorio</div>
+					<div *ngIf= "form['rptClave'].errors['validarClaves']">Las contraseñas deben coincidir</div>
+				</div>
+
+				<div class="text-center">
+					<button class="btn btn-primary mx-3" [disabled]= "registroForm.invalid">Registrarse</button>
+					<button class="btn btn-secondary" type="reset" (click)="onReset()">Cancelar</button>
+				</div>
+			̣</form>
+		</div>
+		<div class="col-3"></div>
+	</div>
+	
+</div>
