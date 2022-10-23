@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {LoginService} from 'src/app/services/login.service';
+import {UsuarioService} from 'src/app/services/usuario.service';
+
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,7 +14,10 @@ export class NavMenuComponent implements OnInit {
   login: boolean = false;//ojo con esta linea
   menus: any; //array de menus
   usuario: any;
-  constructor(private loginservice: LoginService,private router: Router) { }
+  rol: any;
+  idEmpleado:any;
+  nombreEmpleado:any;
+  constructor(private loginservice: LoginService,private usuarioservice: UsuarioService,private router: Router) { }
   isExpanded = false;
   collapse() {
     this.isExpanded = false;
@@ -26,10 +31,12 @@ export class NavMenuComponent implements OnInit {
       if (localStorage.getItem("nombreUser")) {
         this.login = true;
         this.usuario=localStorage.getItem("nombreUser");
-        // Llamar a Listar Paginas....Todavia no implementado
-        // this.usuarioService.listarPaginas().subscribe(dato => {
-        //   this.menus = dato;
-        // });
+        this.rol=localStorage.getItem("rol");
+        // Llamar a Listar Paginas....
+        this.usuarioservice.listarPaginas().subscribe(dato => {
+           this.menus = dato;
+           console.log("muestra: "+this.menus[0].url+this.menus[0].Nombre);
+         });
       }
       else {
         this.login = false;

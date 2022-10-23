@@ -22,6 +22,9 @@ import { DashboardComponent } from './layout/dashboard/dashboard.component';
 
 import {MatBadgeModule} from '@angular/material/badge';
 import { CampoRequeridoComponent } from './layout/campo-requerido/campo-requerido.component';
+import { ComprarComponent } from './compras/comprar/comprar.component';
+import { TransferirComponent } from './compras/transferir/transferir.component';
+import { TenenciaComponent } from './historicos/tenencia/tenencia.component';
 
 
 @NgModule({
@@ -36,6 +39,9 @@ import { CampoRequeridoComponent } from './layout/campo-requerido/campo-requerid
     DashboardComponent,
     CampoRequeridoComponent,
     RegistroComponent,
+    ComprarComponent,
+    TransferirComponent,
+    TenenciaComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +56,9 @@ import { CampoRequeridoComponent } from './layout/campo-requerido/campo-requerid
       { path: 'registro', component: RegistroComponent },
       { path: 'landing', component: LandingComponent },
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'transacciones', component: TransaccionesComponent },
+      { path: 'compra-venta', component: CompraVentaComponent },
+      //{ path: 'registro', component: RegistroComponent },
       
      
       { path: '*', redirectTo: '' } //a home

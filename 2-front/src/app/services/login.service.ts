@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router'; //me parece que no hace falta.
+import { Router } from '@angular/router'; 
 import * as moment from 'moment';
 //la siguiente libreria se utiliza para decdificar el token
 import jwt_decode from 'jwt-decode';
@@ -90,12 +90,7 @@ export class LoginService {
         return res;
     }));
 
-  // public cerrarSession() {
-  //   return this.http.get(this.urlBase + "api/Usuarios/cerrarSession")
-  //     .pipe(map(res => {
-  //       this.borrarToken();
-  //       return res;
-  //   }));
+
   }
   //   *************** FIN LOGIN ***************
 

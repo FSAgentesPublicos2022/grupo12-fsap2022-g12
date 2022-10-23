@@ -24,7 +24,6 @@
 			<a href="#" class="nav-link">Registrarse</a>
 		</li>
 	</nav> -->
-
 	<nav class="nav nav-pills navbar-dark bg-dark align-items-center">
             
 		<li class="nav-item">
@@ -44,11 +43,25 @@
 			  </a>
 		</li>
 			  <li class="nav-item">
-				<a class="nav-item" [routerLink]="['/registro']" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<a class="nav-item" [routerLink]="['/registro']" *ngIf="login!=true" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<img src="../../../assets/Imagenes/registrarse.svg" alt="" width="30" height="30">&nbsp;&nbsp; &nbsp;&nbsp;Registrarse
 				  </a>
-		</li>
-		
+		       </li>
+		       <li class="nav-item">
+				<a class="nav-item" [routerLink]="['/dashboard']" *ngIf="login==true" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<img src="../../../assets/Imagenes/escritorio.svg" alt="" width="30" height="30">&nbsp;&nbsp;&nbsp;Mi&nbsp;Escritorio&nbsp;&nbsp;
+				  </a>
+		       </li>
+			   <li class="nav-item">
+				<a class="nav-item" [routerLink]="['/compra-venta']" *ngIf="login==true" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<img src="../../../assets/Imagenes/comprar.svg" alt="" width="30" height="30">&nbsp;&nbsp;&nbsp;Comprar y vender Cryptos!!&nbsp;&nbsp;
+				  </a>
+		       </li>
+			   <li class="nav-item">
+				<a class="nav-item" [routerLink]="['/transacciones']" *ngIf="login==true" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<img src="../../../assets/Imagenes/estadisticas.svg" alt="" width="30" height="30">&nbsp;&nbsp; &nbsp;&nbsp;Historicos&nbsp;
+				  </a>
+		       </li>
 		
 		<li class="nav-item ms-auto mb-2 mb-lg-0">
 			<a class="nav-item" [routerLink]="['/login']" *ngIf="login==false" role="button" aria-haspopup="true" aria-expanded="false">
@@ -58,24 +71,25 @@
 
 
 
-		<li class="nav-item dropdown ">
-			<a class="nav-link dropdown-toggle texto-blanco"*ngIf="login==true" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			  <img src="../../../assets/Imagenes/Ingresar.svg" alt="" width="36" height="36">&nbsp;&nbsp;&nbsp;{{usuario}} 
+		
+		<li class="nav-item ">
+			<a class="nav-link"*ngIf="login==true" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			  &nbsp;&nbsp;Hola&nbsp;{{usuario}}&nbsp;!! 
 			</a>
 	
-			<div class="dropdown-menu " aria-labelledby="navbarDropdown"
+			<!-- <div class="dropdown-menu " aria-labelledby="navbarDropdown"
 			[routerLinkActive]="['link-active']">
 		 <a class="nav-link texto-negro" [routerLink]="['/login']" *ngIf="login!=true" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		   <img src="../../../assets/Imagenes/Ingresar.svg" alt="" width="36" height="36">&nbsp;&nbsp;&nbsp;Inicie Sesión
 		 </a>
-	   </div>
-			<div class="dropdown-menu " aria-labelledby="navbarDropdown"
+	   </div> -->
+			<!-- <div class="dropdown-menu " aria-labelledby="navbarDropdown"
 				 [routerLinkActive]="['link-active']">
 			  <a class="nav-link  texto-negro" (click)="cerrarSession()" *ngIf="login==true" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<img src="../../../assets/Imagenes/Contacto.svg" alt="No carga" width="36" height="36">&nbspCerrar Sesión ;&nbsp;&nbsp;
+				<img src="../../../assets/Imagenes/Contacto.svg" alt="No carga" width="36" height="36"> Sesión ;&nbsp;&nbsp;
 			  </a>
-			  <a *ngFor="let menu of menus" class="dropdown-item" [routerLink]="[menu.accion]">&nbsp;&nbsp;{{menu.mensaje}}</a>
-			</div>
+			  <a *ngFor="let menu of menus" class="dropdown-item" [routerLink]="[menu.nombre]">&nbsp;&nbsp;{{menu.url}}</a>
+			</div> -->
 		  </li>
 		  <li class="nav-item dropdown"
 			  [routerLinkActive]="['link-active']">

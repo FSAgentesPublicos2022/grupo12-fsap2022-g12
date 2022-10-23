@@ -14,13 +14,14 @@ export class LoginComponent implements OnInit {
   urlBaseFront :string ="http://localhost:4200/";
   usuario: FormGroup;
   error: boolean = false;
+
   constructor(private httpclient: HttpClient ,private router: Router,public servicioLogin:LoginService) {
     this.usuario = new FormGroup({
       //pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?
       "nombreUser": new FormControl("", Validators.required),
       "contrasenia": new FormControl("", Validators.required)
     });
-   }
+  }
 
   ngOnInit(): void {
   }

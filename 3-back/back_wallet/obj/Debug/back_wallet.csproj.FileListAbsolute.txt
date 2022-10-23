@@ -231,7 +231,6 @@ D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\es\Syste
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\es\System.Web.WebPages.resources.dll
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\es\System.Web.WebPages.Deployment.resources.dll
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\obj\Debug\back_wallet.csproj.AssemblyReference.cache
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\obj\Debug\back_wallet.csproj.CoreCompileInputs.cache
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\obj\Debug\back_wallet.csproj.CopyComplete
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\obj\Debug\back_wallet.dll
@@ -239,3 +238,4 @@ D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\obj\Debug\ba
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\System.Web.Cors.dll
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\System.Web.Http.Cors.dll
 D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\bin\System.Web.Http.Cors.xml
+D:\_FullstackGob\frontYback\grupo12-fsap2022-g12\3-back\back_wallet\obj\Debug\back_wallet.csproj.AssemblyReference.cache
