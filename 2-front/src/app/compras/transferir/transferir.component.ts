@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-transferir',
+  selector: 'transferir',
   templateUrl: './transferir.component.html',
   styleUrls: ['./transferir.component.css']
 })

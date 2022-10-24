@@ -20,7 +20,6 @@ import { CompraVentaComponent } from './compras/compra-venta/compra-venta.compon
 import { TransaccionesComponent } from './historicos/Transacciones/Transacciones.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 
-import {MatBadgeModule} from '@angular/material/badge';
 import { CampoRequeridoComponent } from './layout/campo-requerido/campo-requerido.component';
 import { ComprarComponent } from './compras/comprar/comprar.component';
 import { TransferirComponent } from './compras/transferir/transferir.component';
@@ -49,7 +48,6 @@ import { TenenciaComponent } from './historicos/tenencia/tenencia.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    MatBadgeModule,
     RouterModule.forRoot([
       { path: '', component: LandingComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
@@ -58,7 +56,10 @@ import { TenenciaComponent } from './historicos/tenencia/tenencia.component';
       { path: 'dashboard', component: DashboardComponent },
       { path: 'transacciones', component: TransaccionesComponent },
       { path: 'compra-venta', component: CompraVentaComponent },
-      //{ path: 'registro', component: RegistroComponent },
+      { path: 'comprar', component: ComprarComponent },
+      { path: 'comprar/:id', component: ComprarComponent },
+      { path: 'transferir', component: TransferirComponent },
+      { path: 'transferir/:id', component: TransferirComponent },
       
      
       { path: '*', redirectTo: '' } //a home
