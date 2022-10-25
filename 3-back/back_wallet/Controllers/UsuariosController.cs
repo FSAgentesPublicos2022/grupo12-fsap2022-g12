@@ -53,10 +53,11 @@ namespace back_wallet.Controllers
                         oUsuarioRecuerar = bd.Usuario.Where(p => p.NombreUser.ToUpper() == oUsuarioCLS.NombreUser.ToUpper()
                        && p.Contrasenia == claveCifrada).First();
                         oUsuario.IdUsuario = oUsuarioRecuerar.IdUsuario;
+                        var idUsuario = oUsuario.IdUsuario.ToString();
                         oUsuario.NombreUser = oUsuarioRecuerar.NombreUser;
                         oUsuario.IsAdmin = oUsuarioRecuerar.IsAdmin;
                         oUsuario.Mail = oUsuarioRecuerar.Mail;
-                        var token = TokenGenerator.GenerateTokenJwt(oUsuario.NombreUser, oUsuario.Mail, oUsuario.IsAdmin);
+                        var token = TokenGenerator.GenerateTokenJwt(oUsuario.NombreUser, oUsuario.Mail, oUsuario.IsAdmin, idUsuario);
                         //Mañana en el return ok debo devolver una lista y en el servicio debo mapear los tres objetos para ver que recibo.
                         //quizas deba crear una clase o interfaz en angular para poder mapear lo que viene.
 

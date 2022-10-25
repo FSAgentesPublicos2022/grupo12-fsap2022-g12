@@ -60,9 +60,9 @@
                       class="img-fluid me-4"
                     />
                     <span>{{ coin.name }}</span>
-                    <span class="ms-3 text-muted text-uppercase">{{ coin.symbol }}</span>
+                    <span class="ms-3 text-muted text-uppercase">{{coin.symbol}}</span>
                   </td>
-                  <td>{{ coin.current_price.toLocaleString() }}</td>
+                  <td>{{coin.current_price.toLocaleString()}}</td>
       
                   <td ngClass="
                       coin.price_change_percentage_24h > 0
@@ -74,12 +74,11 @@
                   </td>
                   <td>{{coin.total_volume.toLocaleString()}}</td>
                   <td class="text-center" *ngIf="coin.name==='Bitcoin'||coin.name==='Ethereum'||coin.name==='Tether'"  > 
-                    <!-- *ngIf="isMantenimiento==true" -->
-                    <button type="button" class="btn btn-light"[routerLink]="['/comprar',coin.name]"><img src="../../../assets/Imagenes/comprar.svg" alt="" width="24" height="24" title="Comprar"></button>
+                    <!-- [routerLink]="['/comprar',coin.name]" -->
+                    <button type="button"(click)="setValorCripto(coin.current_price,coin.name)" name="btnValorCripto" [value]="coin.current_price" class="btn btn-light"><img src="../../../assets/Imagenes/comprar.svg" alt="" width="24" height="24" title="Comprar"></button>
                     <button type="button" class="btn btn-success" [routerLink]="['/transferir',coin.name]">
                       <img src="../../../assets/Imagenes/vender.svg" alt="" width="24" height="24" title="Transferir">
                     </button>
-                   
                   </td>
                 </tr>
               </tbody>

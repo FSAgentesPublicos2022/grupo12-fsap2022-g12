@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         else {
           //Esta Ok
           this.error = false;
-        window.location.href = this.urlBaseFront + "dashboard";
+       window.location.href = this.urlBaseFront + "dashboard";
         }
         //console.log(res);
 

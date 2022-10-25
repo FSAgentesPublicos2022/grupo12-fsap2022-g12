@@ -27,16 +27,19 @@ export class LoginService {
       map( res =>  {
 
        localStorage.setItem('token', JSON.stringify(res));
-       
+       console.log(JSON.stringify(res));
         this.guardarToken(res);
         
         const tokenInfo = this.getDecodedAccessToken(JSON.stringify(res)); // decode token
+        
        const expireDate = tokenInfo.exp; // get token expiration dateTime
        console.log(tokenInfo); // mostramos el token decodificado
        const correo = tokenInfo.email;
        const userdecode = tokenInfo.unique_name
+       const idUsuario = tokenInfo.groupsid
        localStorage.setItem('mail', JSON.stringify(correo));
         localStorage.setItem('nombreUser', JSON.stringify(userdecode));
+        localStorage.setItem('idUsuario', JSON.stringify(idUsuario));
 
 
          return res;

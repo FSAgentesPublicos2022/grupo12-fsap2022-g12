@@ -1,5 +1,4 @@
-
-    <div class="container">
+        <div class="container">
         <article>
         <div class="p-3 mb-2 bg-info text-dark">
             <div class="row">
@@ -9,31 +8,22 @@
             <div class="col-6"></div>
         </div>
         <div class="row"></div>
+        <form [formGroup]="Compra" (ngSubmit)="ComprarCripto()">
+
         <div class="row">
             <div class="col-6">
-                <h4>Cantidad a Comprar <input type="Cantida a Comprar"></h4> 
+                <h4>Cantidad a Comprar en u$$ <input type="text" formControlName="compraenDolares" [(ngModel)]="compraenDolares"></h4> 
             </div>
-                <div class="col-6">
-                    <select class="form-select form-select-dm">
-                    <option><b>Seleccionar forma de compra</b></option>
-                    <option>Pesos Argentinos</option>
-                    <option>Unidades de Cripto</option>
-                    </select>
-                </div>
          </div>
+
+
+        </form>
          <div class="row">
-                    <div class="col-6">
-                        <select class="form-select form-select-md">
-                        <option><b>SELECCIONAR TIPO DE CRIPTOMONEDA</b></option>
-                        <option>BCH</option>
-                        <option>BTC</option>
-                        <option>BICO</option>
-                        <option>LIT</option>
-                        </select>
-                    </div>
+                
                     
                     <div class="col-6">
-                        <h4>Cantidad recibida <output id="cantidad_ingresada" for="valor_cotizado"></output></h4> 
+                        <h4>Unidades Cripto a Recibir <output id="cantidad_ingresada"for="valor_cotizado"></output></h4> 
+                        <label>{{compraenDolares/precioCriptoElegida}}</label>
                     </div>
          </div>
     </div>

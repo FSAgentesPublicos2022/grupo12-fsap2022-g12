@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ComprarService} from'src/app/services/comprar.service';
 
 
 interface Coin {
@@ -20,14 +22,15 @@ interface Coin {
 })
 export class CompraVentaComponent implements OnInit {
   p: number = 1;
+  valorCriptoSeleccionada:number=0;
   api: string =
-    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false';
+    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false';
   coins: Coin[] = [];
   titles: string[] = ['Criptomoneda', 'Precio en dólares', 'Precio en pesos', '24H Volumen','Operaciones']; //quite el '#', que no sirve para nada.
   searchText: string = '';
   filteredCoints: Coin[] = [];
   
-  constructor(private http: HttpClient) { }
+  constructor(private router: Router,private http: HttpClient, private comprarService: ComprarService) { }
 
   ngOnInit() {
     this.http.get<Coin[]>(this.api).subscribe(
@@ -44,6 +47,12 @@ export class CompraVentaComponent implements OnInit {
         coin.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
         coin.symbol.toLowerCase().includes(this.searchText.toLowerCase())
     );
+  }
+  setValorCripto(valor1:any,enviar:any)
+  {
+    this.valorCriptoSeleccionada= parseFloat(valor1);
+ this.comprarService.valorCripto(this.valorCriptoSeleccionada);
+    this.router.navigate(["/comprar",enviar]);
   }
 
 }
