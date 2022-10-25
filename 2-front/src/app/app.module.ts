@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 //************componentes************
 import { NavMenuComponent } from './layout/nav-menu/nav-menu.component';
 import { LandingComponent } from './layout/landing/landing.component';
@@ -41,6 +42,7 @@ import { TenenciaComponent } from './historicos/tenencia/tenencia.component';
     ComprarComponent,
     TransferirComponent,
     TenenciaComponent,
+ 
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,7 @@ import { TenenciaComponent } from './historicos/tenencia/tenencia.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    NgxPaginationModule,
     RouterModule.forRoot([
       { path: '', component: LandingComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent },

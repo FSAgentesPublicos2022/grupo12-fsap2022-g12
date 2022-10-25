@@ -19,13 +19,14 @@ interface Coin {
   styleUrls: ['./compra-venta.component.css']
 })
 export class CompraVentaComponent implements OnInit {
+  p: number = 1;
   api: string =
     'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false';
   coins: Coin[] = [];
-  titles: string[] = ['#', 'Criptomoneda', 'Precio en dólares', 'Precio en pesos', '24H Volumen','Operaciones'];
+  titles: string[] = ['Criptomoneda', 'Precio en dólares', 'Precio en pesos', '24H Volumen','Operaciones']; //quite el '#', que no sirve para nada.
   searchText: string = '';
   filteredCoints: Coin[] = [];
-
+  
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
