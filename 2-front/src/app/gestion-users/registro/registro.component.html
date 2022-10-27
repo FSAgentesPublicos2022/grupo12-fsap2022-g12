@@ -4,37 +4,32 @@
 		<div class="col-6">
 			<h1>Registro de usuario</h1>
 			<form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
-				<label>Nombre</label>
-				<input type="text" formControlName="nombre" class="form-control" [ngClass]= "{ 'is-invalid': form['nombre'].errors }" required/>
-				<div *ngIf= "form['nombre'].errors" class="invalid-feedback">
-					<div *ngIf= "form['nombre'].errors['required']" class="text-danger">El nombre es obligatorio</div>
-				</div>
-				<label>Apellido</label>
-				<input type="text" formControlName="apellido" class="form-control" [ngClass]= "{ 'is-invalid': form['apellido'].errors }" required/>
-				<div *ngIf= "form['apellido'].errors" class="invalid-feedback">
-					<div *ngIf= "form['apellido'].errors['required']">El apellido es obligatorio</div>
+				<label>Nombre de usuario</label>
+				<input type="text" formControlName="nombreUser" class="form-control" [ngClass]= "{ 'is-invalid': form['nombreUser'].errors }" required/>
+				<div *ngIf= "form['nombreUser'].errors" class="invalid-feedback">
+					<div *ngIf= "form['nombreUser'].errors['required']" class="text-danger">El nombre es obligatorio</div>
 				</div>
 				<label>Email</label>
-				<input type="email" formControlName="email" class="form-control" [ngClass]= "{ 'is-invalid': form['email'].errors }" required/>
-				<div *ngIf= "form['email'].errors" class="invalid-feedback">
-					<div *ngIf= "form['email'].errors['required']">El email es obligatorio</div>
-					<div *ngIf= "form['email'].errors['email']">Compruebe que el email sea correcto</div>
+				<input type="email" formControlName="mail" class="form-control" [ngClass]= "{ 'is-invalid': form['mail'].errors }" required/>
+				<div *ngIf= "form['mail'].errors" class="invalid-feedback">
+					<div *ngIf= "form['mail'].errors['required']">El email es obligatorio</div>
+					<div *ngIf= "form['mail'].errors['email']">Compruebe que el email sea correcto</div>
 				</div>
 				<label>Contraseña</label>
-				<input type="password" formControlName="clave" class="form-control" [ngClass]= "{ 'is-invalid': form['clave'].errors }" required/>
-				<div *ngIf= "form['clave'].errors" class="invalid-feedback">
-					<div *ngIf= "form['clave'].errors['required']">La contraseña es obligatoria</div>
-					<div *ngIf= "form['clave'].errors['minlength']">La contraseña no supera la longitud minima</div>
+				<input type="password" formControlName="contrasenia" class="form-control" [ngClass]= "{ 'is-invalid': form['contrasenia'].errors }" required/>
+				<div *ngIf= "form['contrasenia'].errors" class="invalid-feedback">
+					<div *ngIf= "form['contrasenia'].errors['required']">La contraseña es obligatoria</div>
+					<div *ngIf= "form['contrasenia'].errors['minlength']">La contraseña no supera la longitud minima</div>
 				</div>
 
 				<label>Repetir contraseña</label>
-				<input type="password" formControlName="rptClave" class="form-control" [ngClass]= "{ 'is-invalid': form['rptClave'].errors }" required/>
-				<div *ngIf= "form['rptClave'].errors" class="invalid-feedback">
-					<div *ngIf= "form['rptClave'].errors['required']">Repetir contraseña es obligatorio</div>
-					<div *ngIf= "form['rptClave'].errors['validarClaves']">Las contraseñas deben coincidir</div>
+				<input type="password" formControlName="rptContrasenia" class="form-control" [ngClass]= "{ 'is-invalid': form['rptContrasenia'].errors }" required/>
+				<div *ngIf= "form['rptContrasenia'].errors" class="invalid-feedback">
+					<div *ngIf= "form['rptContrasenia'].errors['required']">Repetir contraseña es obligatorio</div>
+					<div *ngIf= "form['rptContrasenia'].errors['validarClaves']">Las contraseñas deben coincidir</div>
 				</div>
 
-				<div class="text-center">
+				<div class="text-center mt-3">
 					<button class="btn btn-primary mx-3" [disabled]= "registroForm.invalid">Registrarse</button>
 					<button class="btn btn-secondary" type="reset" (click)="onReset()">Cancelar</button>
 				</div>

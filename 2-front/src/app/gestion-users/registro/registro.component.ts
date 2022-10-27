@@ -1,5 +1,6 @@
   import { Component, OnInit } from '@angular/core';
   import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+  import { RegistroUsuarioService } from 'src/app/services/registro-usuario.service';
 
   @Component({
     selector: 'registro',
@@ -8,18 +9,17 @@
   })
   export class RegistroComponent implements OnInit {
 
-    constructor(private formBuilder: FormBuilder) { }
+    constructor(private formBuilder: FormBuilder, private regitroSrv: RegistroUsuarioService) { }
 
     registroForm = this.formBuilder.group(
       {
-        nombre: ["", Validators.required],
-        apellido: ["", Validators.required],
-        email: ["", [Validators.required, Validators.email]],
-        clave: ["", [Validators.required, Validators.minLength(8)]],
-        rptClave: ["", Validators.required]
+        nombreUser: ["", Validators.required],
+        mail: ["", [Validators.required, Validators.email]],
+        contrasenia: ["", [Validators.required, Validators.minLength(8)]],
+        rptContrasenia: ["", Validators.required]
       },
       {
-        validator: this.validarClaves("clave", "rptClave")
+        validator: this.validarClaves("contrasenia", "rptContrasenia")
       }
     );
 
@@ -30,6 +30,18 @@
       return this.registroForm.controls;
     }
 
+    get nombreUser() {
+      return this.registroForm.get("nombreUser");
+    }
+
+    get contrasenia() {
+      return this.registroForm.get("contrasenia");
+    }
+
+    get mail() {
+      return this.registroForm.get("email");
+    }
+
     onReset() {
       this.registroForm.reset();
     }
@@ -38,7 +50,12 @@
       if (this.registroForm.invalid) {
         return;
       }
-  
+
+      this.regitroSrv.registroUsuario(this.registroForm.value).subscribe(
+        data => {
+          console.log(data);
+        }
+      );
       alert(
         "SUCCESS!! :-)\n\n" + JSON.stringify(this.registroForm.value, null, 4)
       );
