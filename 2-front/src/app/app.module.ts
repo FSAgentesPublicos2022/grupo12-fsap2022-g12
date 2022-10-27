@@ -17,6 +17,7 @@ import { RegistroComponent } from './gestion-users/registro/registro.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //**************Servicios****************
 import { LoginService } from './services/login.service';
+import { RegistroUsuarioService } from './services/registro-usuario.service';
 import { CompraVentaComponent } from './compras/compra-venta/compra-venta.component';
 import { TransaccionesComponent } from './historicos/Transacciones/Transacciones.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
@@ -69,7 +70,7 @@ import { TenenciaComponent } from './historicos/tenencia/tenencia.component';
     ]),
     BrowserAnimationsModule
   ],
-  providers: [LoginService],
+  providers: [LoginService, RegistroUsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
