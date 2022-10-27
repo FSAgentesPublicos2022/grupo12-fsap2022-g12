@@ -10,11 +10,12 @@ namespace back_wallet.Models
     {
         [Key]
         public int IdCuenta { get; set; }
-        public int BHabilitado { get; set; }
-        public float Saldo { get; set; }
-        public float Balance { get; set; }
-        public DateTime FechaAlta { get; set; }
-        public DateTime? FechaBaja { get; set; }
+        public decimal Tenencia { get; set; }
+        public decimal Balance { get; set; }
+        public int IdUsuario { get; set; }
+        public int IdCriptomoneda { get; set; }
+        public DateTime? FechaAlta { get; set; }
+        public string NomCrypto { get; set; }
 
     }
 }

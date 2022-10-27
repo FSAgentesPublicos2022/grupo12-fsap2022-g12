@@ -23,6 +23,26 @@ namespace back_wallet.Controllers
             return db.Cuenta;
         }
 
+        [HttpGet]
+        [Route("api/CUENTAs/cuentasusuario/{Idusuario}")]
+        public List<Cuenta> Get(int Idusuario)
+        {   
+            // var cripto = from datos in db.
+            var consulta = from datos in db.Cuenta
+                           where datos.IdUsuario == Idusuario
+                           select datos;
+            if (consulta.Count() == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return consulta.ToList();
+            }
+
+        }
+
+
         // GET: api/Cuentas/5
         [ResponseType(typeof(Cuenta))]
         public IHttpActionResult GetCuenta(int id)
