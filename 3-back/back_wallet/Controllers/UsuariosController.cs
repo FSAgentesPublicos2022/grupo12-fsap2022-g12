@@ -140,6 +140,69 @@ namespace back_wallet.Controllers
             
         }
 
+        // *************    REGISTRO DE USUARIOS     ***************
+        [HttpPost]
+        [Route("api/Usuarios/registro")]
+        public IHttpActionResult Registro([FromBody] Usuario oUsuarioCLS)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            Usuario oUsuario = new Usuario();   
+            int existe = 1;
+
+            try
+            {
+                existe = bd.Usuario.Where(p => p.Mail.ToUpper() == oUsuarioCLS.Mail.ToUpper()).Count();
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine("BD" + err);
+                return InternalServerError();
+            }
+
+            if (existe > 0)
+            {
+                return Conflict();
+            }
+            else
+            {
+                oUsuario.NombreUser = oUsuarioCLS.NombreUser;
+                oUsuario.Mail = oUsuarioCLS.Mail;
+                try
+                {
+                    SHA256Managed sha = new SHA256Managed();
+                    byte[] dataNocifrada = Encoding.Default.GetBytes(oUsuarioCLS.Contrasenia);
+                    byte[] dataCifrada = sha.ComputeHash(dataNocifrada);
+                    string claveCifrada = BitConverter.ToString(dataCifrada).Replace("-", "");
+                    oUsuario.Contrasenia = claveCifrada;
+                }
+                catch (Exception err)
+                {
+                    Console.WriteLine("SHA" + err);
+                    return InternalServerError();
+                }
+                oUsuario.IsAdmin = false;
+                oUsuario.FechaAlta = DateTime.Now;
+                oUsuario.IdPersona = 1;
+
+                try
+                {
+                    bd.Usuario.Add(oUsuario);
+                    bd.SaveChanges();
+                }
+                catch (Exception err)
+                {
+                    Console.WriteLine("SAVE" + err);
+                    return InternalServerError();
+                }
+            }
+
+            return Ok("FIN");
+        }
+
 
     }
 }
