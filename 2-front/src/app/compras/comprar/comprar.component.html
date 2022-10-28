@@ -15,7 +15,11 @@
                 <h4>Cantidad a Comprar en u$$ <input type="text" formControlName="compraenDolares" [(ngModel)]="compraenDolares"></h4> 
             </div>
          </div>
-
+         <div class="pb-5 mt-5 form-group justify-content-around offset-md-4">
+            <input [disabled]="!Compra.valid" type="submit" value="Generar" class="btn btn-success col-md-1 offset-md-1" />
+            <button type="button" class="btn btn-light col-md-1 offset-md-1 px-2"[routerLink]="['/dashboard']" >Cancelar</button>
+            <!-- (click)="volverLoteTabla()" -->
+          </div>
 
         </form>
          <div class="row">

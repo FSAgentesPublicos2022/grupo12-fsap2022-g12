@@ -13,6 +13,7 @@ using back_wallet.Models;
 
 namespace back_wallet.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CuentasController : ApiController
     {
         private back_walletContext db = new back_walletContext();

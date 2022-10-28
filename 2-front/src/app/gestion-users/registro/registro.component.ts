@@ -1,6 +1,7 @@
   import { Component, OnInit } from '@angular/core';
   import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   import { RegistroUsuarioService } from 'src/app/services/registro-usuario.service';
+  import { Router } from '@angular/router';
 
   @Component({
     selector: 'registro',
@@ -9,7 +10,7 @@
   })
   export class RegistroComponent implements OnInit {
 
-    constructor(private formBuilder: FormBuilder, private regitroSrv: RegistroUsuarioService) { }
+    constructor(private formBuilder: FormBuilder, private router: Router, private regitroSrv: RegistroUsuarioService) { }
 
     registroForm = this.formBuilder.group(
       {
@@ -54,11 +55,19 @@
       this.regitroSrv.registroUsuario(this.registroForm.value).subscribe(
         data => {
           console.log(data);
+          if (data == "FIN") {
+            alert(
+              "Exitos!! \n Se registró el usuario " + JSON.stringify(this.registroForm.value.nombreUser, null, 4)
+            );
+            this.router.navigate(["/login"]);
+          } else {
+            alert(
+              "ERROR!! \n\n No se pudo registrar el usuario\n Intenta de nuevo mas tarde"
+            );
+          }
         }
       );
-      alert(
-        "SUCCESS!! :-)\n\n" + JSON.stringify(this.registroForm.value, null, 4)
-      );
+      
     }
 
     validarClaves(ctrlClave: string, ctrlRptClave: string) {

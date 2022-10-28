@@ -1,11 +1,21 @@
 import { Injectable } from '@angular/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router'; 
+import {compra} from '../modelos_Interfaces/compra';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ComprarService {
 valorCrito: number=0;
-  constructor() { }
+urlBase :string ="https://localhost:44393/";
+
+constructor(private http: HttpClient) {
+
+ }
 
 
   public valorCripto(valor: number) {
@@ -32,5 +42,12 @@ valorCrito: number=0;
     }
   } //listo el get valor cripto
 
-private ComprarCripto(){}
+public ComprarCripto(compra:compra): Observable<any>{
+  var url = this.urlBase + 'api/Operaciones/comprar';
+    return this.http.post<compra>(url, compra).pipe(map(res => {
+
+      // al lado del post iba.
+}));
 }
+
+}  //fin servicio

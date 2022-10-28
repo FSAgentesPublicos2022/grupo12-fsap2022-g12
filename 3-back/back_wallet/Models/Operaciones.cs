@@ -19,5 +19,11 @@ namespace back_wallet.Models
         public DateTime? FechaOperacion { get; set; }
         public decimal Importe { get; set; }
         public int IdCriptomoneda { get; set; }
+
+        public int idUsuario { get; set; }
+        public Decimal compraenDolar { get; set; }
+        public Decimal precioCripto { get; set; }
+
+        public string NombreCripto { get; set; }
     }
 }

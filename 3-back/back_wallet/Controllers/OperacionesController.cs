@@ -14,125 +14,99 @@ using back_wallet.Models;
 
 namespace back_wallet.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+
     public class OperacionesController : ApiController
     {
         private back_walletContext db = new back_walletContext();
 
-        // GET: api/Operaciones
-        public IQueryable<Operaciones> GetOperaciones()
+        [HttpPost]
+        [Route("api/Operaciones/comprar")]
+        public IHttpActionResult comprar([FromBody] Compra oCompraCLS)
         {
-            return db.Operaciones;
-        }
+            Cuenta oCuenta = new Cuenta();
+            Persona persona = new Persona();
+            Operaciones oOperacion = new Operaciones();
+            Compra oCompra = new Compra();
+            CRIPTOMONEDA oCripto = new CRIPTOMONEDA();
+            oCompra.idUsuario = oCompraCLS.idUsuario;
+            oCompra.precioCripto = oCompraCLS.precioCripto;
+            oCompra.compraenDolar = oCompraCLS.compraenDolar;
+            oCompra.NombreCripto = oCompraCLS.NombreCripto;
 
-        [HttpGet]
-        [Route("api/Operaciones/cuentasusuario/{IdPersona}")]
-        public List<Operaciones> Get(int IdPersona)
-        {
-            var consulta = from datos in db.Operaciones
-                           where datos.IdPersona == IdPersona
-                           select datos;
-            if (consulta.Count() == 0)
-            {
-                return null;
-            }
-            else
-            {
-                return consulta.ToList(); ;
-            }
-
-        }
-
-        // GET: api/Operaciones/5
-        [ResponseType(typeof(Operaciones))]
-        public IHttpActionResult GetOperaciones(int id)
-        {
-            Operaciones operaciones = db.Operaciones.Find(id);
-            if (operaciones == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(operaciones);
-        }
-
-        // PUT: api/Operaciones/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutOperaciones(int id, Operaciones operaciones)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != operaciones.IdOperacion)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(operaciones).State = EntityState.Modified;
-
+            int rpta = 0;
+            //int idCripto=0;
             try
             {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!OperacionesExists(id))
+
+                // using (back_walletContext bd = new back_walletContext())
+                //  using (back_walletContext bd = new back_walletContext())
+                //{
+
+                  oCripto = db.Criptomonedas.Where(p => p.Nombre == oCompra.NombreCripto).First();
+
+                 rpta = db.Cuentas.Where(p => p.IdUsuario == oCompra.idUsuario && p.IdCriptomoneda == oCripto.IdCriptomoneda).Count();
+                //Evaluamos si existe o no la cuenta de cripto para el usuario.
+                if (rpta == 1)
                 {
-                    return NotFound();
+                    oCuenta = db.Cuentas.Where(p => p.IdUsuario == oCompra.idUsuario && p.IdCriptomoneda == oCripto.IdCriptomoneda).First();
+                    oCuenta.Balance = oCuenta.Balance - oCompra.compraenDolar;
+                    oCuenta.Tenencia = oCuenta.Tenencia + oCompra.compraenDolar / oCompra.precioCripto;
+                    // oCuenta = db.Cuentas.Where(p => p.IdCuenta == oCompra.idUsuario).First();
+                    //Lacuenta existe debo operar en ella
+                    
+                    db.SaveChanges();
                 }
                 else
                 {
-                    throw;
+                    //La Cuenta No existe Debe Crearse
+                    //Si la primer compra supera los 500 dolares se rechaza el pedido.   
+                    if (oCompra.compraenDolar > 500)
+                    {
+                        //Estamos dando la posibilidad que la primer inversion en cripto sea de hasta 500 dolares.!!!
+
+                        return Unauthorized();
+                    }
+                    try
+                    {
+                        oCuenta.IdCuenta = 1;
+                        oCuenta.IdUsuario = (int)oCompra.idUsuario;
+                        oCuenta.Balance = 500 - oCompra.compraenDolar;
+                        oCuenta.IdCriptomoneda = (int)oCripto.IdCriptomoneda;
+                        oCuenta.Tenencia = oCompra.compraenDolar / oCompra.precioCripto;
+                        oCuenta.NomCrypto = oCripto.Nombre;
+                        try
+                        {
+                            db.Cuentas.Add(oCuenta);
+                            int v = db.SaveChanges();
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex);
+
+                        }
+
+                        //  return Ok("Se creó la cuenta exitosamente.");
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+
+                    }
+
+                    return Unauthorized(); //devuelve un 401 no autorizado.
                 }
+
+                //}
             }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/Operaciones
-        [ResponseType(typeof(Operaciones))]
-        public IHttpActionResult PostOperaciones(Operaciones operaciones)
-        {
-            if (!ModelState.IsValid)
+            catch (Exception ex)
             {
-                return BadRequest(ModelState);
+                Console.WriteLine(ex);
             }
 
-            db.Operaciones.Add(operaciones);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = operaciones.IdOperacion }, operaciones);
+            return Unauthorized();
         }
 
-        // DELETE: api/Operaciones/5
-        [ResponseType(typeof(Operaciones))]
-        public IHttpActionResult DeleteOperaciones(int id)
-        {
-            Operaciones operaciones = db.Operaciones.Find(id);
-            if (operaciones == null)
-            {
-                return NotFound();
-            }
-
-            db.Operaciones.Remove(operaciones);
-            db.SaveChanges();
-
-            return Ok(operaciones);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool OperacionesExists(int id)
-        {
-            return db.Operaciones.Count(e => e.IdOperacion == id) > 0;
-        }
     }
 }

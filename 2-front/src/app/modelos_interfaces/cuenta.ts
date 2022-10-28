@@ -1,6 +1,6 @@
 export interface listacuentas {
     IdCuenta: string;
-    Saldo: string;
+    Tenencia: string;
     Balance: string;
     IdUsuario: string;
     IdCriptomoneda: string;
