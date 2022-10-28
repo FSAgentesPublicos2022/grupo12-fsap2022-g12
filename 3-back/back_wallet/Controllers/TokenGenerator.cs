@@ -7,7 +7,7 @@ namespace back_wallet.Controllers
 {
     internal static class TokenGenerator
     {
-        public static string GenerateTokenJwt(string username,string mail,Boolean rol)
+        public static string GenerateTokenJwt(string username,string mail,Boolean rol,string idUsuario)
         {
             // appsetting for Token JWT
             var secretKey = ConfigurationManager.AppSettings["JWT_SECRET_KEY"];
@@ -21,7 +21,7 @@ namespace back_wallet.Controllers
             // create a claimsIdentity
             if (rol) { rolUser = "Admin"; } else { rolUser = "Usuario"; }
 
-            ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, username), new Claim( ClaimTypes.Email, mail), new Claim(ClaimTypes.Role, rolUser) });
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, username), new Claim( ClaimTypes.Email, mail), new Claim(ClaimTypes.Role, rolUser), new Claim(ClaimTypes.GroupSid, idUsuario) });
            
             // create token to the user
             var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();

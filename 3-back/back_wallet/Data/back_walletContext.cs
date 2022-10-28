@@ -29,5 +29,9 @@ namespace back_wallet.Data
         public System.Data.Entity.DbSet<back_wallet.Models.Usuario> Usuario { get; set; }
 
         public System.Data.Entity.DbSet<back_wallet.Models.Persona> Persona { get; set; }
+
+        public System.Data.Entity.DbSet<back_wallet.Models.Cuenta> Cuenta { get; set; }
+
+        public System.Data.Entity.DbSet<back_wallet.Models.Pagina> Pagina { get; set; }
     }
 }

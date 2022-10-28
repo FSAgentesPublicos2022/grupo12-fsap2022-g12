@@ -1,0 +1,34 @@
+        <div class="container">
+        <article>
+        <div class="p-3 mb-2 bg-info text-dark">
+            <div class="row">
+            <div class="col-12">
+                <h2>Elegiste la adquisición de {{moneda}} </h2>
+            </div>
+            <div class="col-6"></div>
+        </div>
+        <div class="row"></div>
+        <form [formGroup]="Compra" (ngSubmit)="ComprarCripto()">
+
+        <div class="row">
+            <div class="col-6">
+                <h4>Cantidad a Comprar en u$$ <input type="text" formControlName="compraenDolares" [(ngModel)]="compraenDolares"></h4> 
+            </div>
+         </div>
+         <div class="pb-5 mt-5 form-group justify-content-around offset-md-4">
+            <input [disabled]="!Compra.valid" type="submit" value="Generar" class="btn btn-success col-md-1 offset-md-1" />
+            <button type="button" class="btn btn-light col-md-1 offset-md-1 px-2"[routerLink]="['/dashboard']" >Cancelar</button>
+            <!-- (click)="volverLoteTabla()" -->
+          </div>
+
+        </form>
+         <div class="row">
+                
+                    
+                    <div class="col-6">
+                        <h4>Unidades Cripto a Recibir <output id="cantidad_ingresada"for="valor_cotizado"></output></h4> 
+                        <label>{{compraenDolares/precioCriptoElegida}}</label>
+                    </div>
+         </div>
+    </div>
+    </article>

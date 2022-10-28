@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  baseUrlFront :"http://localhost:4200/"
+  baseUrlFront :"http://localhost:4200/",
+  idUsuario: 1,
+  precioCripto: 1,
+  compraenDolar: 1,
+  nombreCripto: "btc"
 };
 
 /*
